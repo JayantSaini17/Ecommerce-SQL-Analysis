@@ -1,0 +1,66 @@
+USE ecommerce_db;
+INSERT INTO customers VALUES
+(1,  'Aarav',  'Sharma', 'aarav@mail.com',  'Delhi',     '2025-01-10'),
+(2,  'Priya',  'Verma',  'priya@mail.com',  'Mumbai',    '2025-01-15'),
+(3,  'Rohan',  'Gupta',  'rohan@mail.com',  'Bengaluru', '2025-02-01'),
+(4,  'Sneha',  'Iyer',   'sneha@mail.com',  'Chennai',   '2025-02-12'),
+(5,  'Karan',  'Singh',  'karan@mail.com',  'Delhi',     '2025-03-05'),
+(6,  'Neha',   'Kapoor', 'neha@mail.com',   'Mumbai',    '2025-03-20'),
+(7,  'Vikram', 'Rao',    'vikram@mail.com', 'Bengaluru', '2025-04-02'),
+(8,  'Anjali', 'Mehta',  'anjali@mail.com', 'Delhi',     '2025-04-18'),
+(9,  'Rahul',  'Nair',   'rahul@mail.com',  'Chennai',   '2025-05-07'),
+(10, 'Pooja',  'Joshi',  'pooja@mail.com',  'Mumbai',    '2025-05-25');
+
+INSERT INTO products VALUES
+(1, 'Wireless Mouse',         'Electronics', 799.00),
+(2, 'Mechanical Keyboard',    'Electronics', 3499.00),
+(3, 'Bluetooth Headphones',   'Electronics', 2999.00),
+(4, 'Running Shoes',          'Fashion',     2499.00),
+(5, 'Denim Jacket',           'Fashion',     1999.00),
+(6, 'Yoga Mat',               'Fitness',     899.00),
+(7, 'Water Bottle',           'Fitness',     399.00),
+(8, 'Notebook Pack',          'Stationery',  299.00);
+
+INSERT INTO orders VALUES
+(1,  1, '2025-06-05', 'Delivered'),
+(2,  2, '2025-06-12', 'Delivered'),
+(3,  3, '2025-06-20', 'Delivered'),
+(4,  1, '2025-07-03', 'Delivered'),
+(5,  4, '2025-07-15', 'Cancelled'),
+(6,  5, '2025-07-22', 'Delivered'),
+(7,  2, '2025-08-04', 'Delivered'),
+(8,  6, '2025-08-11', 'Returned'),
+(9,  3, '2025-08-25', 'Delivered'),
+(10, 7, '2025-09-02', 'Delivered'),
+(11, 1, '2025-09-14', 'Delivered'),
+(12, 8, '2025-09-28', 'Delivered'),
+(13, 5, '2025-10-06', 'Delivered'),
+(14, 2, '2025-10-18', 'Delivered'),
+(15, 4, '2025-10-29', 'Delivered'),
+(16, 7, '2025-11-08', 'Delivered'),
+(17, 3, '2025-11-15', 'Cancelled'),
+(18, 6, '2025-11-23', 'Delivered'),
+(19, 1, '2025-12-05', 'Delivered'),
+(20, 8, '2025-12-19', 'Delivered');
+
+INSERT INTO order_items (order_id, product_id, quantity, unit_price) VALUES
+(1, 1, 1, 799),  (1, 8, 3, 299),
+(2, 3, 1, 2999),
+(3, 4, 1, 2499), (3, 7, 2, 399),
+(4, 2, 1, 3499),
+(5, 5, 1, 1999),
+(6, 6, 1, 899),  (6, 7, 1, 399),
+(7, 1, 2, 799),
+(8, 3, 1, 2999),
+(9, 5, 2, 1999),
+(10, 2, 1, 3499), (10, 1, 1, 799),
+(11, 4, 1, 2499),
+(12, 6, 2, 899), (12, 8, 5, 299),
+(13, 3, 1, 2999),
+(14, 4, 1, 2499), (14, 7, 2, 399),
+(15, 1, 1, 799),
+(16, 5, 1, 1999), (16, 6, 1, 899),
+(17, 2, 1, 3499),
+(18, 8, 4, 299),
+(19, 3, 1, 2999), (19, 7, 1, 399),
+(20, 2, 1, 3499), (20, 6, 1, 899);
