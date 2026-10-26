@@ -3,8 +3,8 @@ USE ecommerce_db;
 -- Query1
 
 SELECT
-    SUM(line_total)                          AS total_revenue,
-    COUNT(DISTINCT order_id)                 AS total_orders,
+    SUM(line_total) AS total_revenue,
+    COUNT(DISTINCT order_id) AS total_orders,
     ROUND(SUM(line_total) / COUNT(DISTINCT order_id), 2) AS avg_order_value
 FROM vw_delivered_sales;
 
@@ -12,7 +12,7 @@ FROM vw_delivered_sales;
 
 SELECT
     DATE_FORMAT(order_date, '%Y-%m') AS order_month,
-    SUM(line_total)                  AS revenue
+    SUM(line_total) AS revenue
 FROM vw_delivered_sales
 GROUP BY DATE_FORMAT(order_date, '%Y-%m')
 ORDER BY order_month;
@@ -57,15 +57,11 @@ WHERE o.order_id IS NULL;
 -- Query8
 
 SELECT
-    o.status,
-    COUNT(DISTINCT o.order_id) AS total_orders,
-    ROUND(COUNT(DISTINCT o.order_id) * 100.0 / (SELECT COUNT(*) FROM orders), 2) AS pct_of_orders,
-    SUM(oi.quantity * oi.unit_price) AS order_value,
-    ROUND(SUM(oi.quantity * oi.unit_price) * 100.0
-          / (SELECT SUM(quantity * unit_price) FROM order_items), 2) AS pct_of_value
-FROM orders o
-JOIN order_items oi ON o.order_id = oi.order_id
-GROUP BY o.status;
+    status,
+    COUNT(*) AS total_orders,
+    ROUND(COUNT(*) * 100.0 / (SELECT COUNT(*) FROM orders), 2) AS pct_of_orders
+FROM orders
+GROUP BY status;
 
 -- Query9
 
