@@ -57,11 +57,15 @@ WHERE o.order_id IS NULL;
 -- Query8
 
 SELECT
-    status,
-    COUNT(*) AS total_orders,
-    ROUND(COUNT(*) * 100.0 / (SELECT COUNT(*) FROM orders), 2) AS pct_of_orders
-FROM orders
-GROUP BY status;
+    o.status,
+    COUNT(DISTINCT o.order_id) AS total_orders,
+    ROUND(COUNT(DISTINCT o.order_id) * 100.0 / (SELECT COUNT(*) FROM orders), 2) AS pct_of_orders,
+    SUM(oi.quantity * oi.unit_price) AS order_value,
+    ROUND(SUM(oi.quantity * oi.unit_price) * 100.0
+          / (SELECT SUM(quantity * unit_price) FROM order_items), 2) AS pct_of_value
+FROM orders o
+JOIN order_items oi ON o.order_id = oi.order_id
+GROUP BY o.status;
 
 -- Query9
 

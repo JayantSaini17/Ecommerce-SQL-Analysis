@@ -27,7 +27,7 @@ CASE statements, Views, Aggregate functions
 | Q5 | Which cities generate the most orders and revenue? | GROUP BY, COUNT DISTINCT |
 | Q6 | Which customers are repeat buyers (2 or more delivered orders)? | GROUP BY, HAVING |
 | Q7 | Which customers have registered but never placed an order? | LEFT JOIN, IS NULL |
-| Q8 | What percentage of orders are Delivered, Cancelled, or Returned? | Subquery, percentage calculation |
+| Q8 | What share of orders and order value is Delivered, Cancelled, or Returned? | JOIN, subquery, percentage calculation |
 | Q9 | How can customers be segmented into High, Medium, and Low value based on total spend? | CTE, CASE |
 | Q10 | What is the best-selling product in each category? | CTE, RANK() window function |
 | Q11 | How much did revenue grow or shrink compared to the previous month? | CTE, LAG() window function |
@@ -39,7 +39,7 @@ CASE statements, Views, Aggregate functions
 
 ### Overall performance
 - The store generated **₹47,460** in revenue from **17 delivered orders**, with an average order value of **₹2,791.76** (Q1).
-- Cancelled and returned orders (3 of 20) were worth **₹8,497** in lost revenue, about 15% of what total sales would have been (Q8).
+- Cancelled and returned orders (3 of 20) were worth **₹8,497** in lost revenue, about **15%** of total order value (Q8).
 - **85%** of orders were delivered, **10%** cancelled, **5%** returned (Q8).
 
 ### Revenue trends
@@ -60,9 +60,14 @@ CASE statements, Views, Aggregate functions
 - **2 registered customers** (Rahul Nair and Pooja Joshi) have never placed an order, which makes them a target for a first-purchase offer (Q7).
 - **5 High Value customers** generate about **87% of revenue**, which shows how dependent the business is on a small group of buyers (Q9).
 ## How to Run
-1. Install MySQL 8.0+
-2. Run files in order: 01_schema.sql, 02_sample_data.sql, 03_views.sql
-3. Run queries from 04_analysis_queries.sql
+1. Install MySQL 8.0+ and MySQL Workbench
+2. Run the files in this order:
+   1. `schema.sql` (creates the database and tables)
+   2. `sample_data.sql` (inserts the sample data)
+   3. `views.sql` (creates the reporting view)
+3. Open `analysis_queries.sql` and run each query one at a time (Ctrl + Enter)
+
+*Dataset: 20 sample orders created for this project (fictional data).*
 
 ## Screenshots
 1. Query1
