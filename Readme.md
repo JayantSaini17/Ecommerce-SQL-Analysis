@@ -10,7 +10,7 @@ It covers revenue trends, product performance, and customer behavior.
 
 ## Database Schema
 4 tables: customers, products, orders, order_items
-![Schema Diagram](Results_SS\Database_Schema.png)
+![](Results_SS\Database_Schema.png)
 
 ## SQL Concepts Used
 JOINs, GROUP BY, HAVING, CTEs, Window Functions (RANK, LAG),
